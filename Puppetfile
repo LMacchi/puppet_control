@@ -15,4 +15,4 @@ mod 'hunner/hiera', '1.2.0'
 
 # Modules from Puppet repo
 mod 'profiles',
-  :git => "git@github.com:LMacchi/profiles_bare.git",
+  :git => "git@github.com:LMacchi/profiles_bare.git"
