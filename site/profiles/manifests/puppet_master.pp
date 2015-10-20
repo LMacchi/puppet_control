@@ -20,6 +20,12 @@
 #
 class profiles::puppet_master {
 
+  # Hiera lookups
+  $vcs_token        = hiera('vcs_api_token'),
+  $vcs_project_name = hiera('vcs_project'),
+  $vcs_server_url   = hiera('vcs_url'),
+  $vcs_provider     = hiera('vcs_provider'),
+
   # Configure R10K
   include pe_r10k
 
@@ -65,13 +71,23 @@ class profiles::puppet_master {
   }
 
   # Add webhook to VCS
+  git_webhook { 'web_post_receive_webhook' :
+    ensure             => present,
+    webhook_url        => "${::fqdn}:8088/payload",
+    token              => $vcs_token,
+    project_name       => $vcs_project_name,
+    server_url         => $vcs_server_url,
+    disable_ssl_verify => true,
+    provider           => 'github',
+  }
+
   git_deploy_key { 'add_deploy_key_to_puppet_control':
     ensure       => present,
     name         => $::fqdn,
     path         => '/root/.ssh/id_rsa.pub',
-    token        => hiera('vcs_api_token'),
-    project_name => hiera('vcs_project'),
-    server_url   => hiera('vcs_url'),
-    provider     => hiera('vcs_provider'),
+    token        => $vcs_token,
+    project_name => $vcs_project_name,
+    server_url   => $vcs_server_url,
+    provider     => $vcs_provider,
   }
 }
