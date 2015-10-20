@@ -21,10 +21,10 @@
 class profiles::puppet_master {
 
   # Hiera lookups
-  $vcs_token        = hiera('vcs_api_token'),
-  $vcs_project_name = hiera('vcs_project'),
-  $vcs_server_url   = hiera('vcs_url'),
-  $vcs_provider     = hiera('vcs_provider'),
+  $vcs_token        = hiera('vcs_api_token')
+  $vcs_project_name = hiera('vcs_project')
+  $vcs_server_url   = hiera('vcs_url')
+  $vcs_provider     = hiera('vcs_provider')
 
   # Configure R10K
   include pe_r10k
