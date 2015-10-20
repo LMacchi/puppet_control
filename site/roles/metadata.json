@@ -1,0 +1,14 @@
+{
+  "name": "LMacchi/roles",
+  "version": "0.1.0",
+  "author": "LMacchi",
+  "summary": "Roles for my infrastructure",
+  "license": "Apache-2.0",
+  "source": "https://github.com/LMacchi/puppet_control.git",
+  "project_page": "https://github.com/LMacchi/puppet_control",
+  "issues_url": "https://github.com/LMacchi/puppet_control/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+

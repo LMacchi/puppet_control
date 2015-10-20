@@ -1,2 +1,12 @@
 ---
-message: "This is a test message"
+# Version Control Configuration
+vcs_host_key: "Insert key here"
+vcs_api_token: "Insert token here"
+vcs_project: "LMacchi/puppet_control"
+vcs_url: "github.com"
+vcs_provider: "github"
+
+# R10K configuration
+pe_r10k::cachedir: "/var/cache/r10k"
+pe_r10k::remote: "git@github.com:LMacchi/puppet_control.git"
+pe_r10k::r10k_basedir: "%{::codedir}/environments"
