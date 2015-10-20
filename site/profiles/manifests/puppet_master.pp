@@ -81,13 +81,4 @@ class profiles::puppet_master {
     provider           => 'github',
   }
 
-  git_deploy_key { 'add_deploy_key_to_puppet_control':
-    ensure       => present,
-    name         => $::fqdn,
-    path         => '/root/.ssh/id_rsa.pub',
-    token        => $vcs_token,
-    project_name => $vcs_project_name,
-    server_url   => $vcs_server_url,
-    provider     => $vcs_provider,
-  }
 }
