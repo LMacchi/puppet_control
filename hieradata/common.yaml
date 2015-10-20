@@ -9,4 +9,4 @@ vcs_provider: "github"
 # R10K configuration
 pe_r10k::cachedir: "/var/cache/r10k"
 pe_r10k::remote: "git@github.com:LMacchi/puppet_control.git"
-pe_r10k::r10k_basedir: "%{::codedir}/environments"
+pe_r10k::r10k_basedir: "%{::settings::codedir}/environments"
